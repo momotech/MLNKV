@@ -6,9 +6,9 @@ MLNKV是基于mmap实现的高性能、跨平台的(支持iOS与Android)的Key-V
 <br>
 
 # 性能对比
-![img](https://github.com/momotech/MLNKV/setString.png)<br>
-![img](https://github.com/momotech/MLNKV/setInt.png)<br>
-![img](https://github.com/momotech/MLNKV/getString.png)
+![img](https://github.com/momotech/MLNKV/blob/master/setString.png)<br>
+![img](https://github.com/momotech/MLNKV/blob/master/setInt.png)<br>
+![img](https://github.com/momotech/MLNKV/blob/master/getString.png)
 
 
 
