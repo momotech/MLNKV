@@ -1,0 +1,16 @@
+PODS:
+  - MLNKV (0.0.1)
+
+DEPENDENCIES:
+  - MLNKV (from `./MLNKV.podspec`)
+
+EXTERNAL SOURCES:
+  MLNKV:
+    :path: "./MLNKV.podspec"
+
+SPEC CHECKSUMS:
+  MLNKV: 3b3e05e9f9da70aacd9e20dbbd98e29d852f6d8e
+
+PODFILE CHECKSUM: 8bed9be1db3351d1a7d83470ccea4f1407bbd0f6
+
+COCOAPODS: 1.7.5

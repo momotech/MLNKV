@@ -1,0 +1,6 @@
+framework module Pods_MLNKV {
+  umbrella header "Pods-MLNKV-umbrella.h"
+
+  export *
+  module * { export * }
+}
