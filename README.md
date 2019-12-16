@@ -2,14 +2,17 @@ MLNKV
 =======
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/momotech/MLNKV/blob/master/LICENSE)
 
-MLNKV是基于mmap实现的高性能、跨平台的(支持iOS与Android)的Key-Value组件。
+MLNKV是基于mmap实现的高性能、内存占用低、跨平台(支持iOS与Android)的Key-Value组件。
 <br>
 
 # 性能对比
-![img](https://github.com/momotech/MLNKV/blob/master/setString.png)<br>
-![img](https://github.com/momotech/MLNKV/blob/master/setInt.png)<br>
-![img](https://github.com/momotech/MLNKV/blob/master/getString.png)
-
+`测试机型：iPhone Xs 13.1.3 64G`<br>
+![img](https://github.com/momotech/MLNKV/blob/master/img/setString.png)<br>
+![img](https://github.com/momotech/MLNKV/blob/master/img/setInt.png)<br>
+![img](https://github.com/momotech/MLNKV/blob/master/img/getString.png)<br>
+=====
+内存占用对比:<br>
+![img](https://github.com/momotech/MLNKV/blob/master/img/memory.png)
 
 
 # 用法
@@ -32,12 +35,12 @@ MLNKV *mlnkv = [MLNKV defaultMLNKV];
     [mlnkv setKVObject:@{@"key":@"value"} forKey:@"key7"];
     [mlnkv setKVData:data forKey:@"key8"];
     
-    // get
+// get
     int value = [mlnkv getKVInt32ForKey:@"key3"];
     ...
     ...
     
-    // obj 自己实现序列化 or 使用NSKeyedArchiver
+// obj 自己实现序列化 or 使用NSKeyedArchiver
     [mlnkv setKVObject:obj forKey:@"key" archiveBlock:^NSData * _Nullable(id  _Nonnull obj) {
        // ...archive
     }];
