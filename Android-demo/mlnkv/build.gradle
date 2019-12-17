@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加 bintray-release 配置
 
 android {
     compileSdkVersion 29
@@ -44,3 +45,18 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+
+publish {
+    userOrg = 'sunzt8801'
+    repoName = 'MLNKV'
+    groupId = 'com.mlnkv'
+    artifactId = 'mlnkv'
+    publishVersion = '0.0.1'
+    desc = 'MLNKV是基于mmap实现的高性能、内存占用低、跨平台(支持iOS与Android)的Key-Value组件。'
+    website = 'https://github.com/momotech/MLNKV'
+}
+
+
+
+

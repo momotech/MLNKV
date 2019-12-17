@@ -50,7 +50,8 @@ MLNKV *mlnkv = [MLNKV defaultMLNKV];
 
 ```
 ### Android 基本用法<br>
-
+`maven {url "https://dl.bintray.com/sunzt8801/MLNKV"}`<br>
+` implementation "com.mlnkv:mlnkv:0.0.1" `
 ```
 
 // must call this in MainActivity
@@ -80,7 +81,8 @@ MLNKV mlnkv = MLNKV.defaultMLNKV();
 
 ```
 
-
+# 许可证
+MLNKV 使用 MIT 许可证，详情见 LICENSE 文件。
 
 
 
