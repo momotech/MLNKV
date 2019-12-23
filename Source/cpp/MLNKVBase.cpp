@@ -65,6 +65,25 @@ static inline bool mln_create_file(const char *filePath) {
     return success;
 }
 
+
+static inline bool mln_protect_action(void *dst, size_t n, std::function<void(void)> func) {
+    int ps = getpagesize();
+    void *fixed_dst = (void *)((ptrdiff_t)dst & ~(ps - 1));
+    size_t fixed_size = (1 + n / ps) * ps;
+    int r = mprotect(fixed_dst, fixed_size, PROT_READ | PROT_WRITE);
+    if (r != 0) {
+        MLNKVError("[mprotect error] %p size: %ld change permissions to PROT_WRITE %d", dst, n, errno);
+        return false;
+    }
+    func();
+    r = mprotect(fixed_dst, fixed_size, PROT_READ);
+    if (r != 0) {
+        MLNKVError("[mprotect error] %p size: %ld change permissions to PROT_READ %d", dst, n, errno);
+        return false;
+    }
+    return true;
+}
+
 //static inline bool mln_remove_file(const char *filePath) {
 //    if (strlen(filePath) == 0) {
 //        return false;
@@ -336,7 +355,7 @@ void MLNKVBase::trim() {
     if (munmap(filemmap, oldSize) != 0) {
         MLNKVError("fail to munmap [%s], %s", filePath, strerror(errno));
     }
-    filemmap = (char *)mmap(filemmap, fileSize, PROT_READ | PROT_WRITE, MAP_SHARED, file, 0);
+    filemmap = (char *)mmap(filemmap, fileSize, PROT_READ, MAP_SHARED, file, 0);
     if (filemmap == MAP_FAILED) {
         MLNKVError("fail to mmap [%s], %s", filePath, strerror(errno));
     }
@@ -388,24 +407,29 @@ bool MLNKVBase::writeBytes(const void *value, const size_t size, MLNKVValueType 
         obj.valueSize = size;
         keysMap[key] = std::move(obj);
         
-        filemmap[offset ++] = valueType;
-        filemmap[offset ++] = static_cast<char>(keyLengthSize);
-        filemmap[offset ++] = static_cast<char>(valueLengthSize);
-        MLNKVWriteUInt32((uint8_t *)filemmap + offset, keyLength, keyLengthSize);
-        offset += keyLengthSize;
-        MLNKVWriteUInt64((uint8_t *)filemmap + offset, size, valueLengthSize);
-        offset += valueLengthSize;
-        memcpy(filemmap + offset, key.c_str(), keyLength);
-        offset += keyLength;
-        memcpy(filemmap + offset, value, size);
-        offset += size;
+        mln_protect_action(filemmap + offset, segmentSize, [=,&offset]() {
+            filemmap[offset ++] = valueType;
+            filemmap[offset ++] = static_cast<char>(keyLengthSize);
+            filemmap[offset ++] = static_cast<char>(valueLengthSize);
+            MLNKVWriteUInt32((uint8_t *)filemmap + offset, keyLength, keyLengthSize);
+            offset += keyLengthSize;
+            MLNKVWriteUInt64((uint8_t *)filemmap + offset, size, valueLengthSize);
+            offset += valueLengthSize;
+            memcpy(filemmap + offset, key.c_str(), keyLength);
+            offset += keyLength;
+            memcpy(filemmap + offset, value, size);
+            offset += size;
+        });
         
         if (availableStatus == MLNKVReusedAvailableStatusAppend) {
             usedSize = offset;
             if (offset < fileSize - 1) {
-                memset(filemmap + offset, MLNKVValueType_None, 1);
+                mln_protect_action(filemmap + offset, 1, [this, offset]() {
+                    memset(filemmap + offset, MLNKVValueType_None, 1);
+                });
             }
         }
+        
         return true;
     }
     MLNKVError("can't set value for key:%s",key.c_str());
@@ -492,7 +516,9 @@ bool MLNKVBase::clear() {
     size_t pageSize = getpagesize();
     if (filemmap != nullptr && filemmap != MAP_FAILED) {
         size_t size = std::min<size_t>(pageSize, fileSize);
-        memset(filemmap, MLNKVValueType_None, size);
+        mln_protect_action(filemmap, size, [this, size]() {
+            memset(filemmap, MLNKVValueType_None, size);
+        });
         if (msync(filemmap, size, MS_SYNC) != 0) {
             MLNKVError("fail to msync [%s], %s", filePath, strerror(errno));
         }
@@ -550,7 +576,7 @@ bool MLNKVBase::loadDataFromFile(bool openFile) {
             }
         }
         
-        filemmap = (char *)mmap(nullptr, fileSize, PROT_READ | PROT_WRITE, MAP_SHARED, file, 0);
+        filemmap = (char *)mmap(nullptr, fileSize, PROT_READ, MAP_SHARED, file, 0);
         if (filemmap == MAP_FAILED) {
             MLNKVError("fail to mmap file:%s, %s", filePath, strerror(errno));
             close(file);
@@ -617,7 +643,9 @@ bool MLNKVBase::loadDataFromFile(bool openFile) {
             keysMap[key] = std::move(obj);
             
             if (availableOffset != offset) { // <<
-                memcpy(filemmap + availableOffset, filemmap + offset, segmentSize);
+                mln_protect_action(filemmap + availableOffset, segmentSize, [this, availableOffset, offset, segmentSize]() {
+                    memcpy(filemmap + availableOffset, filemmap + offset, segmentSize);
+                });
             }
             
             // real offset
@@ -629,7 +657,9 @@ bool MLNKVBase::loadDataFromFile(bool openFile) {
     usedSize = availableOffset;
     
     if (usedSize != offset && fileSize > usedSize) {
-        memset(filemmap + usedSize, MLNKVValueType_None, 1);
+        mln_protect_action(filemmap + usedSize, 1, [this]() {
+            memset(filemmap + usedSize, MLNKVValueType_None, 1);
+        });
     }
     
     MLNKVLog("map size:%d", keysMap.size());
@@ -669,7 +699,7 @@ bool MLNKVBase::ensureMemorySize(size_t newSize) {
         if (munmap(filemmap, oldSize) != 0) {
             MLNKVError("fail to munmap [%@], %s", filePath, strerror(errno));
         }
-        filemmap = (char *)mmap(filemmap, fileSize, PROT_READ | PROT_WRITE, MAP_SHARED, file, 0);
+        filemmap = (char *)mmap(filemmap, fileSize, PROT_READ, MAP_SHARED, file, 0);
         if (filemmap == MAP_FAILED) {
             MLNKVError("fail to mmap file:%s, %s", filePath, strerror(errno));
         }
@@ -683,8 +713,9 @@ bool MLNKVBase::ensureMemorySize(size_t newSize) {
 
 
 bool MLNKVBase::markUnAvailable(size_t offset) {
-    filemmap[offset] = MLNKVValueType_Used;
-    return true;
+    return mln_protect_action(filemmap+offset, 1, [this, offset] {
+        filemmap[offset] = MLNKVValueType_Used;
+    });
 }
 
 bool MLNKVBase::reuseMemoryOffset(size_t size, size_t &offset) {
