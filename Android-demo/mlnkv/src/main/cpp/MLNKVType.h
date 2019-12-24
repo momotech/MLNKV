@@ -7,7 +7,7 @@
 #ifndef MLNKVType_h
 #define MLNKVType_h
 
-typedef enum : int16_t {
+typedef enum : uint8_t {
     MLNKVValueType_None   = 0,
     MLNKVValueType_Used   = 1,
     MLNKVValueType_Bool   = 2,

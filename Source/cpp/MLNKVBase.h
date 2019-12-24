@@ -20,7 +20,7 @@
 #include "MLNKVValueInfo.hpp"
 
 
-typedef enum : int16_t {
+typedef enum : uint8_t {
     MLNKVReusedAvailableStatusNone = 0,
     MLNKVReusedAvailableStatusReused = 1,
     MLNKVReusedAvailableStatusAppend = 2,
@@ -41,23 +41,26 @@ class MLNKVBase {
     bool loadDataFromFile(bool openFile = true);
     bool isFileValid();
     bool ensureMemorySize(size_t newSize);
-    bool markUnAvailable(size_t offset);
     bool reuseMemoryOffset(size_t size, size_t &offset);
     bool sortUnavailableMemory(bool force);
+    void markUnAvailable(MLNKVValueInfo &valueInfo);
     
-    bool writeBytes(const void *value, const size_t size, MLNKVValueType valueType, const std::string &key);
     bool writeUInt32(uint32_t value, MLNKVValueType valueType, const std::string &key);
     bool writeUInt64(uint64_t value, MLNKVValueType valueType, const std::string &key);
     MLNKVReusedAvailableStatus getAvailableOffset(size_t dataSize, size_t &offset);
     
-    bool getValueBytes(const std::string &key, MLNKVValueType &valueType, void* &value, size_t &size);
-    
     bool removeValue(const std::string &key);
+    bool removeValue(const std::string &key, std::unordered_map<std::string, MLNKVValueInfo>::iterator &valueItera, bool returnValue);
     bool clear();
     
 public:
     MLNKVBase(const std::string &path);
     ~MLNKVBase();
+    
+    // write bytes
+    bool writeBytes(const void *value, const size_t size, MLNKVValueType valueType, const std::string &key);
+    // read bytes
+    bool readValueBytes(const std::string &key, MLNKVValueType &valueType, void* &value, size_t &size);
     
     // set
     

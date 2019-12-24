@@ -3,7 +3,6 @@
 //  MLNKV
 //
 //
-//
 
 #ifndef MLNKVValueInfo_hpp
 #define MLNKVValueInfo_hpp
@@ -18,8 +17,8 @@ public:
     
     MLNKVValueType type;
     size_t offset;
-    size_t extSize;
-    size_t keySize;
+    uint8_t extSize;
+    uint32_t keySize;
     size_t valueSize;
     
     MLNKVValueInfo(MLNKVValueType type = MLNKVValueType_None): type(type) {}

@@ -78,6 +78,7 @@
         _mlnkv = [MLNKV defaultMLNKV];
         CFAbsoluteTime space = CFAbsoluteTimeGetCurrent() - begin;
         self.setupTimeLabel.text = [NSString stringWithFormat:@"启动耗时：%f ms", space * 1000];
+        self.saveCountLabel.text = [NSString stringWithFormat:@"数据存储量：%ld", _mlnkv.count];
         NSLog(@">>启动耗时：%f", space);
         NSLog(@"initmlnkv-memory-e:%f", [self usedMemory]);
     }
@@ -125,7 +126,7 @@
                     int len = arc4random() % length +1;
                     NSMutableString *st = [NSMutableString stringWithCapacity:len];
                     for (int s = 0; s < length; s++) {
-                        [st appendFormat:@"%c", arc4random()/30 + 'A'];
+                        [st appendFormat:@"%c", arc4random()%30 + 'A'];
                     }
                     if (st.length <= 0) {
                         continue;

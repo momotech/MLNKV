@@ -65,18 +65,21 @@ static inline bool mln_create_file(const char *filePath) {
     return success;
 }
 
+#define mln_trunc_page(x)   ((x) & (~(ps - 1)))
+#define mln_round_page(x)   mln_trunc_page((x) + (ps - 1))
 
 static inline bool mln_protect_action(void *dst, size_t n, std::function<void(void)> func) {
     int ps = getpagesize();
-    void *fixed_dst = (void *)((ptrdiff_t)dst & ~(ps - 1));
-    size_t fixed_size = (1 + n / ps) * ps;
-    int r = mprotect(fixed_dst, fixed_size, PROT_READ | PROT_WRITE);
+    ptrdiff_t fixed_dst =  mln_trunc_page((ptrdiff_t)dst);
+    ptrdiff_t fixed_dst2 = mln_round_page((ptrdiff_t)dst + n);
+    size_t fixed_size = fixed_dst2 - fixed_dst;
+    int r = mprotect((void *)fixed_dst, fixed_size, PROT_READ | PROT_WRITE);
     if (r != 0) {
         MLNKVError("[mprotect error] %p size: %ld change permissions to PROT_WRITE %d", dst, n, errno);
         return false;
     }
     func();
-    r = mprotect(fixed_dst, fixed_size, PROT_READ);
+    r = mprotect((void *)fixed_dst, fixed_size, PROT_READ);
     if (r != 0) {
         MLNKVError("[mprotect error] %p size: %ld change permissions to PROT_READ %d", dst, n, errno);
         return false;
@@ -97,7 +100,7 @@ static inline bool mln_protect_action(void *dst, size_t n, std::function<void(vo
  *length 3
  *1 符号位 | 2 keylength bytes | 3 valuelength bytes
  */
-static const uint16_t kMLNKVExtendLength = 3;
+static const uint8_t kMLNKVExtendLength = 3;
 
 //Class
 using namespace std;
@@ -179,18 +182,19 @@ bool MLNKVBase::setDouble(double value, const std::string &key) {
 #pragma mark - get
 bool MLNKVBase::getBytesForKey(const std::string &key, void* &value, size_t &size) {
     MLNKVValueType valueType = MLNKVValueType_None;
-    return this->getValueBytes(key, valueType, value, size);
+    return this->readValueBytes(key, valueType, value, size);
 }
 
 bool MLNKVBase::getStringForKey(const std::string &key, std::string &result) {
     MLNKVValueType valueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, valueType, value, size)) {
-        char keys[size + 1];
-        memcpy(keys, value, size);
-        keys[size] = '\0';
-        result = string(keys);
+    if (this->readValueBytes(key, valueType, value, size)) {
+        if (size > 0) {
+            result = string((char *)value, size);
+        }else {
+            result = string("");
+        }
         return true;
     }
     return false;
@@ -200,8 +204,8 @@ bool MLNKVBase::getBoolForKey(const std::string &key, bool defaultValue) {
     MLNKVValueType valueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, valueType, value, size)) {
-        int16_t va = ((uint8_t *)value)[0];
+    if (this->readValueBytes(key, valueType, value, size)) {
+        uint8_t va = ((uint8_t *)value)[0];
         return va == 1;
     }
     return defaultValue;
@@ -211,8 +215,8 @@ int32_t MLNKVBase::getInt32ForKey(const std::string &key, int32_t defaultValue) 
     MLNKVValueType valueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, valueType, value, size)) {
-        uint32_t va = MLNKVReadUInt32((uint8_t *)value, size);
+    if (this->readValueBytes(key, valueType, value, size)) {
+        uint32_t va = MLNKVReadUInt32((uint8_t *)value, static_cast<uint8_t>(size));
         return MLNKVUInt32ToInt32(va);
     }
     return defaultValue;
@@ -222,8 +226,8 @@ int64_t MLNKVBase::getInt64ForKey(const std::string &key, int64_t defaultValue) 
     MLNKVValueType valueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, valueType, value, size)) {
-        uint64_t va = MLNKVReadUInt64((uint8_t *)value, size);
+    if (this->readValueBytes(key, valueType, value, size)) {
+        uint64_t va = MLNKVReadUInt64((uint8_t *)value, static_cast<uint8_t>(size));
         return MLNKVUInt64ToInt64(va);
     }
     return defaultValue;
@@ -233,8 +237,8 @@ float MLNKVBase::getFloatForKey(const std::string &key, float defaultValue) {
     MLNKVValueType valueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, valueType, value, size)) {
-        uint32_t va = MLNKVReadUInt32((uint8_t *)value, size);
+    if (this->readValueBytes(key, valueType, value, size)) {
+        uint32_t va = MLNKVReadUInt32((uint8_t *)value, static_cast<uint8_t>(size));
         return MLNKVUInt32ToFloat(va);
     }
     return defaultValue;
@@ -244,8 +248,8 @@ double MLNKVBase::getDoubleForKey(const std::string &key, double defaultValue) {
     MLNKVValueType valueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, valueType, value, size)) {
-        uint64_t va = MLNKVReadUInt64((uint8_t *)value, size);
+    if (this->readValueBytes(key, valueType, value, size)) {
+        uint64_t va = MLNKVReadUInt64((uint8_t *)value, static_cast<uint8_t>(size));
         return MLNKVUInt64ToDouble(va);
     }
     return defaultValue;
@@ -257,7 +261,7 @@ size_t MLNKVBase::getValueSizeForKey(const std::string &key, MLNKVValueType &val
     MLNKVValueType tempValueType = MLNKVValueType_None;
     void *value;
     size_t size = 0;
-    if (this->getValueBytes(key, tempValueType, value, size)) {
+    if (this->readValueBytes(key, tempValueType, value, size)) {
         valueType = tempValueType;
         return size;
     }
@@ -275,7 +279,7 @@ vector<string> MLNKVBase::allKeys() {
     MLNKVLock_mutex_lock(mutex);
     vector<string> keys;
     for(const auto &kv : keysMap) {
-        keys.push_back(kv.first);
+        keys.push_back(move(kv.first));
     }
     return keys;
 }
@@ -372,11 +376,15 @@ size_t MLNKVBase::getFileSize() {
 
 // private
 
-#pragma mark - write private
+#pragma mark - write bytes with type
 bool MLNKVBase::writeBytes(const void *value, const size_t size, MLNKVValueType valueType, const std::string &key) {
-    assert(!key.empty());
+    assert(!key.empty() || valueType > MLNKVValueType_Bytes);
     if (key.empty()) {
         MLNKVError("key can't be empty...");
+        return false;
+    }
+    if (valueType > MLNKVValueType_Bytes) {
+        MLNKVError("write bytes type value must be in MLNKVValueType...");
         return false;
     }
     
@@ -390,27 +398,37 @@ bool MLNKVBase::writeBytes(const void *value, const size_t size, MLNKVValueType 
     if (size == 0 || value == nullptr) {
         return this->removeValue(key);
     }
-    this->removeValue(key);
+    
+    unordered_map<string, MLNKVValueInfo>::iterator valueInfoItera;
+    bool removed = removeValue(key, valueInfoItera, true);
     
     uint32_t keyLength = static_cast<uint32_t>(key.length());
-    int16_t keyLengthSize = MLNKVRawVarUInt32Size(keyLength);
-    int16_t valueLengthSize = MLNKVRawVarUInt64Size(size);
+    uint8_t keyLengthSize = MLNKVRawVarUInt32Size(keyLength);
+    uint8_t valueLengthSize = MLNKVRawVarUInt64Size(size);
     
     size_t segmentSize = kMLNKVExtendLength + keyLengthSize + keyLength + valueLengthSize + size;
     size_t offset = 0;
     MLNKVReusedAvailableStatus availableStatus = this->getAvailableOffset(segmentSize, offset);
     if (availableStatus > MLNKVReusedAvailableStatusNone) {
-        MLNKVValueInfo obj(valueType);
-        obj.offset = offset;
-        obj.extSize = static_cast<size_t>(kMLNKVExtendLength + keyLengthSize +valueLengthSize);
-        obj.keySize = keyLength;
-        obj.valueSize = size;
-        keysMap[key] = std::move(obj);
+        if (removed) {
+            auto &obj = valueInfoItera->second;
+            obj.offset = offset;
+            obj.extSize = static_cast<uint8_t>(kMLNKVExtendLength + keyLengthSize +valueLengthSize);
+            obj.keySize = keyLength;
+            obj.valueSize = size;
+        } else {
+            MLNKVValueInfo obj(valueType);
+            obj.offset = offset;
+            obj.extSize = static_cast<uint8_t>(kMLNKVExtendLength + keyLengthSize +valueLengthSize);
+            obj.keySize = keyLength;
+            obj.valueSize = size;
+            keysMap[key] = std::move(obj);
+        }
         
-        mln_protect_action(filemmap + offset, segmentSize, [=,&offset]() {
+        mln_protect_action(filemmap + offset, segmentSize + 1, [=,&offset,&key]() {
             filemmap[offset ++] = valueType;
-            filemmap[offset ++] = static_cast<char>(keyLengthSize);
-            filemmap[offset ++] = static_cast<char>(valueLengthSize);
+            filemmap[offset ++] = static_cast<uint8_t>(keyLengthSize);
+            filemmap[offset ++] = static_cast<uint8_t>(valueLengthSize);
             MLNKVWriteUInt32((uint8_t *)filemmap + offset, keyLength, keyLengthSize);
             offset += keyLengthSize;
             MLNKVWriteUInt64((uint8_t *)filemmap + offset, size, valueLengthSize);
@@ -419,16 +437,14 @@ bool MLNKVBase::writeBytes(const void *value, const size_t size, MLNKVValueType 
             offset += keyLength;
             memcpy(filemmap + offset, value, size);
             offset += size;
-        });
-        
-        if (availableStatus == MLNKVReusedAvailableStatusAppend) {
-            usedSize = offset;
-            if (offset < fileSize - 1) {
-                mln_protect_action(filemmap + offset, 1, [this, offset]() {
+            
+            if (availableStatus == MLNKVReusedAvailableStatusAppend) {
+                usedSize = offset;
+                if (offset < fileSize - 1) {
                     memset(filemmap + offset, MLNKVValueType_None, 1);
-                });
+                }
             }
-        }
+        });
         
         return true;
     }
@@ -436,17 +452,15 @@ bool MLNKVBase::writeBytes(const void *value, const size_t size, MLNKVValueType 
     return false;
 }
 
-
-
 bool MLNKVBase::writeUInt32(uint32_t value, MLNKVValueType valueType, const std::string &key) {
-    int16_t valueSize = MLNKVRawVarUInt32Size(value);
+    uint8_t valueSize = MLNKVRawVarUInt32Size(value);
     uint8_t valuePtr[valueSize];
     MLNKVWriteUInt32(valuePtr, value, valueSize);
     return this->writeBytes(valuePtr, static_cast<size_t>(valueSize), valueType, key);
 }
 
 bool MLNKVBase::writeUInt64(uint64_t value, MLNKVValueType valueType, const std::string &key) {
-    int16_t valueSize = MLNKVRawVarUInt64Size(value);
+    uint8_t valueSize = MLNKVRawVarUInt64Size(value);
     uint8_t valuePtr[valueSize];
     MLNKVWriteUInt64(valuePtr, value, valueSize);
     return this->writeBytes(valuePtr,  static_cast<size_t>(valueSize), valueType, key);
@@ -463,8 +477,8 @@ MLNKVReusedAvailableStatus MLNKVBase::getAvailableOffset(size_t dataSize, size_t
     return MLNKVReusedAvailableStatusNone;
 }
 
-#pragma mark - get private
-bool MLNKVBase::getValueBytes(const std::string &key, MLNKVValueType &valueType, void* &value, size_t &size) {
+#pragma mark - read bytes
+bool MLNKVBase::readValueBytes(const std::string &key, MLNKVValueType &valueType, void* &value, size_t &size) {
     assert(key.empty() == false);
     if (key.empty()) {
         MLNKVError("key can't be empty...");
@@ -479,7 +493,7 @@ bool MLNKVBase::getValueBytes(const std::string &key, MLNKVValueType &valueType,
     }
     auto itera = keysMap.find(key);
     if (itera == keysMap.end()) {
-        MLNKVError("can't find key [%s]", key.c_str());
+        MLNKVLog("can't find key [%s]", key.c_str());
         return false;
     }
     auto& obj = itera->second;
@@ -493,31 +507,48 @@ bool MLNKVBase::getValueBytes(const std::string &key, MLNKVValueType &valueType,
 bool MLNKVBase::removeValue(const std::string &key) {
     auto itera = keysMap.find(key);
     if (itera != keysMap.end()) {
-        auto& obj = itera->second;
-        this->markUnAvailable(obj.offset);
-        
-        size_t segmentSize = obj.extSize + obj.keySize + obj.valueSize;
-        unordered_map<size_t, unordered_set<size_t>>::iterator segmentItera = unavailablesMap.find(segmentSize);
-        
-        if (segmentItera != unavailablesMap.end()) {
-            (segmentItera->second).insert(obj.offset);
-        }else {
-            unordered_set<size_t> keySet = {obj.offset};
-            unavailablesMap[segmentSize] = keySet;
-        }
-        unavailabledSize += segmentSize;
-        
+        markUnAvailable(itera->second);
         keysMap.erase(key);
     }
     return true;
+}
+
+bool MLNKVBase::removeValue(const string &key, unordered_map<string, MLNKVValueInfo>::iterator &valueItera, bool returnValue) {
+    auto itera = keysMap.find(key);
+    if (itera != keysMap.end()) {
+        markUnAvailable(itera->second);
+        if (!returnValue) {
+            keysMap.erase(key);
+        }else {
+            valueItera = itera;
+        }
+        return true;
+    }
+    return false;
+}
+
+void MLNKVBase::markUnAvailable(MLNKVValueInfo &valueInfo) {
+    size_t offset = valueInfo.offset;
+    mln_protect_action(filemmap+offset, 1, [this, offset] {
+        filemmap[offset] = MLNKVValueType_Used;
+    });
+    size_t segmentSize = valueInfo.extSize + valueInfo.keySize + valueInfo.valueSize;
+    unordered_map<size_t, unordered_set<size_t>>::iterator segmentItera = unavailablesMap.find(segmentSize);
+    if (segmentItera != unavailablesMap.end()) {
+        (segmentItera->second).insert(valueInfo.offset);
+    }else {
+        unordered_set<size_t> keySet = {valueInfo.offset};
+        unavailablesMap[segmentSize] = keySet;
+    }
+    unavailabledSize += segmentSize;
 }
 
 bool MLNKVBase::clear() {
     size_t pageSize = getpagesize();
     if (filemmap != nullptr && filemmap != MAP_FAILED) {
         size_t size = std::min<size_t>(pageSize, fileSize);
-        mln_protect_action(filemmap, size, [this, size]() {
-            memset(filemmap, MLNKVValueType_None, size);
+        mln_protect_action(filemmap, 1, [this]() {
+            memset(filemmap, MLNKVValueType_None, 1);
         });
         if (msync(filemmap, size, MS_SYNC) != 0) {
             MLNKVError("fail to msync [%s], %s", filePath, strerror(errno));
@@ -595,8 +626,8 @@ bool MLNKVBase::loadDataFromFile(bool openFile) {
         if (valid < MLNKVValueType_Used || valid > MLNKVValueType_Bytes) {
             break;
         }
-        uint16_t keyLengthSize = filemmapPtr[tempOffset ++];
-        uint16_t valueLengthSize = filemmapPtr[tempOffset ++];
+        uint8_t keyLengthSize = filemmapPtr[tempOffset ++];
+        uint8_t valueLengthSize = filemmapPtr[tempOffset ++];
         
         if (keyLengthSize == 0 ||
             valueLengthSize == 0 ||
@@ -630,15 +661,11 @@ bool MLNKVBase::loadDataFromFile(bool openFile) {
         
         size_t segmentSize = static_cast<size_t>(kMLNKVExtendLength + keyLengthSize + valueLengthSize + keyLength + valueLength);
         if (valid != MLNKVValueType_Used) {
-            char keys[keyLength + 1];
-            memcpy(keys, filemmap + tempOffset, keyLength);
-            keys[keyLength] = '\0';
-            string key = string(keys);
-            
+            string key(filemmap + tempOffset, keyLength);
             MLNKVValueInfo obj(valid);
             obj.offset = availableOffset;
-            obj.extSize = static_cast<size_t>(kMLNKVExtendLength + keyLengthSize + valueLengthSize);
-            obj.keySize = static_cast<size_t>(keyLength);
+            obj.extSize = static_cast<uint8_t>(kMLNKVExtendLength + keyLengthSize + valueLengthSize);
+            obj.keySize = static_cast<uint32_t>(keyLength);
             obj.valueSize = static_cast<size_t>(valueLength);
             keysMap[key] = std::move(obj);
             
@@ -709,13 +736,6 @@ bool MLNKVBase::ensureMemorySize(size_t newSize) {
         }
     }
     return true;
-}
-
-
-bool MLNKVBase::markUnAvailable(size_t offset) {
-    return mln_protect_action(filemmap+offset, 1, [this, offset] {
-        filemmap[offset] = MLNKVValueType_Used;
-    });
 }
 
 bool MLNKVBase::reuseMemoryOffset(size_t size, size_t &offset) {
