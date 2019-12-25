@@ -115,6 +115,7 @@ public class MLNKV {
                     return true;
                 }
             }catch (Exception e){
+                Log.e("MLNKV", "encode obj for ["+ key +"]", e);
                 e.printStackTrace();
             }
         }
@@ -186,6 +187,7 @@ public class MLNKV {
             }
         }catch (Exception e){
             e.printStackTrace();
+            Log.e("MLNKV", "decode data for[" + key + "]", e);
         }
 
         return null;

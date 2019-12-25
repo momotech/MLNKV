@@ -53,8 +53,6 @@ if (!aKey || ![aKey isKindOfClass:NSString.class]) return result;
             _path = path;
             _kvBase = new MLNKVBase(path.UTF8String);
             _memoryCache = [[MLNKVMemoryCache alloc] init];
-            // 设置耗时
-//            [[NSFileManager defaultManager] setAttributes:@{NSFileProtectionKey:NSFileProtectionNone} ofItemAtPath:_path error:NULL];
         }
     }
     return self;

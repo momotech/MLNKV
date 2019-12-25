@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "MLNKV"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "MLNKV is a key-value storage framework ."
 
   spec.description  = <<-DESC

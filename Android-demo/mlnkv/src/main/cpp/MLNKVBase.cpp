@@ -674,9 +674,10 @@ bool MLNKVBase::ensureMemorySize(size_t newSize) {
     }
     
     if (newSize > (fileSize - usedSize)) {
-        if (newSize <= unavailabledSize && this->sortUnavailableMemory(false)) {
-            return true;
-        }
+        // 重新整合数据 可能会引起 取值返回的 void * 数据段有问题
+//        if (newSize <= unavailabledSize && this->sortUnavailableMemory(false)) {
+//            return true;
+//        }
         size_t oldSize = fileSize;
         do {
             fileSize *= 2;
