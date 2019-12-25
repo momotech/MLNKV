@@ -29,11 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
         MLNKV.initializeBasePath(this);
         mlnkv = MLNKV.defaultMLNKV();
-        mlnkv.setInt32(1, "key1");
-        mlnkv.setString("value1", "key2");
+        mlnkv.setInt32(-11, "key1");
+        mlnkv.setString("value我发😁1", "key2");
 
         Log.e("MMMM", String.valueOf(mlnkv.getInt32("key1", 0)));
         Log.e("MMMM", mlnkv.getString("key2", ""));
+
+        for (String ss : mlnkv.allKeys()) {
+            Log.e("MMMM", ss);
+        }
 
     }
 

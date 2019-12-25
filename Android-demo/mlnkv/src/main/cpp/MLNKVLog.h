@@ -19,23 +19,21 @@ typedef enum {
 
 //#define MLNDebug
 
+#define __mlnkv_filename__ (strrchr(__FILE__, '/') + 1)
+void MLNKVLogWithLevel(MLNLogLevel level, const char *file, const char *func, int line, const char *format, ...);
+
 #ifdef MLNDebug
 
-#define __mlnkv_filename__ (strrchr(__FILE__, '/') + 1)
-
-#define MLNKVError(format, ...) MLNKVLogWithLevel(MLNLogError, __mlnkv_filename__, __func__, __LINE__, format, ##__VA_ARGS__)
 #define MLNKVLog(format, ...) MLNKVLogWithLevel(MLNLogDebug, __mlnkv_filename__, __func__, __LINE__, format, ##__VA_ARGS__)
 
-void MLNKVLogWithLevel(MLNLogLevel level, const char *file, const char *func, int line, const char *format, ...);
 
 #else
 
-#define MLNKVError(format, ...) 
 #define MLNKVLog(format, ...)
 
 #endif
 
-
+#define MLNKVError(format, ...) MLNKVLogWithLevel(MLNLogError, __mlnkv_filename__, __func__, __LINE__, format, ##__VA_ARGS__)
 
 
 #endif /* MLNKVLog_h */

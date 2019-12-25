@@ -52,7 +52,7 @@ publish {
     repoName = 'MLNKV'
     groupId = 'com.mlnkv'
     artifactId = 'mlnkv'
-    publishVersion = '0.0.1'
+    publishVersion = '0.0.2'
     desc = 'MLNKV是基于mmap实现的高性能、内存占用低、跨平台(支持iOS与Android)的Key-Value组件。'
     website = 'https://github.com/momotech/MLNKV'
 }

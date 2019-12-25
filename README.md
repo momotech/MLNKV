@@ -51,7 +51,7 @@ MLNKV *mlnkv = [MLNKV defaultMLNKV];
 ```
 ### Android 基本用法<br>
 `maven {url "https://dl.bintray.com/sunzt8801/MLNKV"}`<br>
-` implementation "com.mlnkv:mlnkv:0.0.1" `
+` implementation "com.mlnkv:mlnkv:0.0.2" `
 ```
 
 // must call this in MainActivity

@@ -1,6 +1,6 @@
 {
   "name": "MLNKV",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "MLNKV is a key-value storage framework .",
   "description": "MLNKV",
   "homepage": "https://github.com/momotech/MLNKV",
@@ -15,16 +15,10 @@
   "requires_arc": true,
   "source": {
     "git": "https://github.com/momotech/MLNKV.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
-  "source_files": [
-    "Source",
-    "Source/**/*.{h,m,mm,hpp,h,cpp}"
-  ],
-  "public_header_files": [
-    "Source/iOS/{MLNKV,MLNKVMemoryCache}.h",
-    "Source/cpp/MLNKVType.h"
-  ],
+  "source_files": "Source/iOS/*.{h,m,mm}",
+  "public_header_files": "Source/iOS/*.h",
   "frameworks": "CoreFoundation",
   "ios": {
     "frameworks": "UIKit"
@@ -36,5 +30,12 @@
   "pod_target_xcconfig": {
     "CLANG_CXX_LIBRARY": "libc++",
     "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF": "NO"
-  }
+  },
+  "subspecs": [
+    {
+      "name": "cpp",
+      "source_files": "Source/cpp/*.{h,hpp,cpp}",
+      "public_header_files": "Source/cpp/*.{h,hpp}"
+    }
+  ]
 }

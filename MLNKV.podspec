@@ -9,11 +9,11 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "MLNKV"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "MLNKV is a key-value storage framework ."
 
   spec.description  = <<-DESC
-                    MLNKV
+                    MLNKV is a key-value storage framework !!
                    DESC
 
   spec.homepage     = "https://github.com/momotech/MLNKV"
@@ -25,17 +25,20 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/momotech/MLNKV.git", :tag => spec.version.to_s }
 
-  spec.source_files  = "Source", "Source/**/*.{h,m,mm,hpp,h,cpp}"
-  spec.public_header_files = "Source/iOS/{MLNKV,MLNKVMemoryCache}.h", "Source/cpp/MLNKVType.h"
+  spec.source_files  = "Source/iOS/*.{h,m,mm}"
+  spec.public_header_files = "Source/iOS/*.h"
 
+  spec.subspec 'cpp' do |ss|
+    ss.source_files = "Source/cpp/*.{h,hpp,cpp}"
+    ss.public_header_files = "Source/cpp/*.{h,hpp}"
+  end
 
-  spec.framework = "CoreFoundation"
   spec.ios.frameworks = "UIKit"
 
   spec.libraries = "z", "c++"
   spec.pod_target_xcconfig = {
-    "CLANG_CXX_LIBRARY" => "libc++",
-    "CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF" => "NO",
+    'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+    'CLANG_CXX_LIBRARY' => 'libc++'
   }
 
 end

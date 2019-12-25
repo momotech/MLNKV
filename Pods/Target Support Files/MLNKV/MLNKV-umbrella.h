@@ -12,7 +12,11 @@
 
 #import "MLNKV.h"
 #import "MLNKVMemoryCache.h"
+#import "MLNKVBase.h"
+#import "MLNKVLog.h"
 #import "MLNKVType.h"
+#import "MLNKVUtility.h"
+#import "MLNKVValueInfo.hpp"
 
 FOUNDATION_EXPORT double MLNKVVersionNumber;
 FOUNDATION_EXPORT const unsigned char MLNKVVersionString[];

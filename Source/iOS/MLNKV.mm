@@ -135,9 +135,11 @@ if (!aKey || ![aKey isKindOfClass:NSString.class]) return result;
         return [self setKVObject:value forKey:aKey];
     }
     NSUInteger length = value.length;
-    unichar buffer[length];
+    unichar *buffer = (unichar *)malloc(length * sizeof(unichar));
     [value getCharacters:buffer range:NSMakeRange(0, length)];
-    return _kvBase->setBytes(buffer, length * sizeof(unichar), aKey.UTF8String);
+    BOOL ret = _kvBase->writeBytes(buffer, length * sizeof(unichar), MLNKVValueType_String, aKey.UTF8String);
+    free(buffer);
+    return ret;
 }
 
 - (BOOL)setKVInt32:(int32_t)value forKey:(NSString *)aKey {
@@ -259,7 +261,8 @@ if (!aKey || ![aKey isKindOfClass:NSString.class]) return result;
     MLNKVGetKeyAssert(nil);
     void *value;
     size_t size;
-    if (_kvBase->getBytesForKey(aKey.UTF8String, value, size)) {
+    MLNKVValueType valueType;
+    if (_kvBase->readValueBytes(aKey.UTF8String, valueType, value, size)) {
         NSString *valueStr = [[NSString alloc] initWithCharacters:(unichar *)value length:size/sizeof(unichar)];
         return valueStr;
     }
