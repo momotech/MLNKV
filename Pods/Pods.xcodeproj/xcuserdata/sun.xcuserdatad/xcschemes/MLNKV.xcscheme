@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D7A90C668DDD5A1E2EEB6A6E65247D72"
-               BuildableName = "MLNKV.framework"
+               BuildableName = "libMLNKV.a"
                BlueprintName = "MLNKV"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

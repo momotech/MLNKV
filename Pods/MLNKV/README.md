@@ -51,7 +51,7 @@ MLNKV *mlnkv = [MLNKV defaultMLNKV];
 ```
 ### Android 基本用法<br>
 `maven {url "https://dl.bintray.com/sunzt8801/MLNKV"}`<br>
-` implementation "com.mlnkv:mlnkv:0.0.4" `
+` implementation "com.mlnkv:mlnkv:0.0.3" `
 ```
 
 // must call this in MainActivity
@@ -63,12 +63,12 @@ MLNKV mlnkv = MLNKV.defaultMLNKV();
 // MLNKV mlnkv = new MLNKV(path);
 
 // set 
-    mlnkv.setBool("key1", true);
-    mlnkv.setInt32("key2", 1);
-    mlnkv.setInt64("key3", 88888888);
-    mlnkv.setDouble("key4", 8888.888);
-    mlnkv.setString("key5", "value");
-    mlnkv.setBytes("key6", bytes);
+    mlnkv.setBool(true, "key1");
+    mlnkv.setInt32(1, "key2");
+    mlnkv.setInt64(88888888, "key3");
+    mlnkv.setDouble(8888.888, "key4");
+    mlnkv.setString("value", "key5");
+    mlnkv.setBytes(bytes, "key6");
 
 // get 
     boolean value = mlnkv.getBool("key1");
@@ -76,8 +76,8 @@ MLNKV mlnkv = MLNKV.defaultMLNKV();
     ...
 
 // obj 使用java Serializable
-    mlnkv.setObject("key", obj);
-    mlnkv.getObject("key", clz);
+    mlnkv.setObject(obj, "key");
+    mlnkv.getObject(obj, clz);
 
 ```
 

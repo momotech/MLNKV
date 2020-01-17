@@ -88,22 +88,22 @@ public class MLNKV {
 
     // set
 
-    public boolean setObject(@NonNull Object value, @NonNull String key) {
+    public boolean setObject(@NonNull String key, @NonNull Object value) {
         if (value == null) {
             return remove(key);
         }
         if (value instanceof String) {
-            return setString(value.toString(), key);
+            return setString(key, value.toString());
         }else if (value instanceof Boolean) {
-            return setBool((Boolean)value, key);
+            return setBool(key, (Boolean)value);
         }else if (value instanceof Integer) {
-            return setInt32((Integer)value, key);
+            return setInt32(key, (Integer)value);
         }else if (value instanceof Long) {
-            return setInt64((Long)value, key);
+            return setInt64(key, (Long)value);
         }else if (value instanceof Float) {
-            return setFloat((Float)value, key);
+            return setFloat(key, (Float)value);
         }else if (value instanceof Double) {
-            return setDouble((Double)value, key);
+            return setDouble(key, (Double)value);
         }else {
             try {
                 byte[] bytes = mlnkvBytes(value);
@@ -111,7 +111,7 @@ public class MLNKV {
                     return remove(key);
                 }
                 if (setBytes(nativeMLNKVObj, bytes, bytes.length, key)) {
-                    memoryCache.setObject(value, key, 0);
+                    memoryCache.setObject(key, value, 0);
                     return true;
                 }
             }catch (Exception e){
@@ -122,7 +122,7 @@ public class MLNKV {
         return false;
     }
 
-    public boolean setBytes(@NonNull byte[] value, @NonNull String key) {
+    public boolean setBytes(@NonNull String key, @NonNull byte[] value) {
         if (value == null) {
             return false;
         }
@@ -130,27 +130,27 @@ public class MLNKV {
         return setBytes(nativeMLNKVObj, value, size, key);
     }
 
-    public boolean setString(@NonNull String value, @NonNull String key) {
+    public boolean setString(@NonNull String key, @NonNull String value) {
         return setString(nativeMLNKVObj, value, key);
     }
 
-    public boolean setBool(boolean value, @NonNull String key) {
+    public boolean setBool(@NonNull String key, boolean value) {
         return setBool(nativeMLNKVObj, value, key);
     }
 
-    public boolean setInt32(int value, @NonNull String key) {
+    public boolean setInt32(@NonNull String key, int value) {
         return setInt32(nativeMLNKVObj, value, key);
     }
 
-    public boolean setInt64(long value, @NonNull String key) {
+    public boolean setInt64(@NonNull String key, long value) {
         return setInt64(nativeMLNKVObj, value, key);
     }
 
-    public boolean setFloat(float value, @NonNull String key) {
+    public boolean setFloat(@NonNull String key, float value) {
         return setFloat(nativeMLNKVObj, value, key);
     }
 
-    public boolean setDouble(double value, @NonNull String key) {
+    public boolean setDouble(@NonNull String key, double value) {
         return setDouble(nativeMLNKVObj, value, key);
     }
 
@@ -182,7 +182,7 @@ public class MLNKV {
         try {
             Object obj = mlnkvObject(bytes);
             if (clz == null || obj.getClass().equals(clz)) {
-                memoryCache.setObject(obj, key, 0);
+                memoryCache.setObject(key, obj, 0);
                 return obj;
             }
         }catch (Exception e){

@@ -1,7 +1,7 @@
 PODS:
-  - MLNKV (0.0.2):
-    - MLNKV/cpp (= 0.0.2)
-  - MLNKV/cpp (0.0.2)
+  - MLNKV (0.0.3):
+    - MLNKV/cpp (= 0.0.3)
+  - MLNKV/cpp (0.0.3)
 
 DEPENDENCIES:
   - MLNKV (from `./MLNKV.podspec`)
@@ -11,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "./MLNKV.podspec"
 
 SPEC CHECKSUMS:
-  MLNKV: 6a32f2f2643aa9c737fd4e6c59d53fbfdba3c562
+  MLNKV: bdab9e05b3e408151188a28e87d529162cdc2d93
 
-PODFILE CHECKSUM: 8bed9be1db3351d1a7d83470ccea4f1407bbd0f6
+PODFILE CHECKSUM: 4068777ec4b8e48b9bc30e3f6e41f68bed99a2cb
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

@@ -253,7 +253,7 @@ public class MLNKVMemoryCache {
         }
     }
 
-    public void setObject(Object obj, String key, long size) {
+    public void setObject(String key, Object obj, long size) {
         if (key == null) return;
         if (obj == null) {
             removeObjectForKey(key);
@@ -300,7 +300,7 @@ public class MLNKVMemoryCache {
        }
     }
 
-    public void setWeakObject(Object obj, String key) {
+    public void setWeakObject(String key, Object obj) {
         if (key == null) return;
         synchronized (this) {
             if (obj == null) {

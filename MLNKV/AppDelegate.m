@@ -24,8 +24,8 @@
 //    [[MLNKV defaultMLNKV] setKVString:@"测试你好(*￣︶￣)😊" forKey:@"key2"];
 //    NSLog(@"%@", [[MLNKV defaultMLNKV] getKVStringForKey:@"key2" defaultValue:nil]);
 //    
-//    MLNKV *mlnkv = [MLNKV defaultMLNKV];
-//    
+    MLNKV *mlnkv = [MLNKV defaultMLNKV];
+//
 //    // set
 //    [mlnkv setKVString:@"value" forKey:@"key1"];
 //    [mlnkv setKVBool:YES forKey:@"key2"];
@@ -50,6 +50,10 @@
 //    
 //    NSLog(@"---%f", [mlnkv getKVFloatForKey:@"key5"]);
 //    NSLog(@"---%f", [mlnkv getKVDoubleForKey:@"key6"]);
+    
+    [mlnkv setKVString:@"123" forKey:@"keysss"];
+    [mlnkv removeValueForKey:@"keysss"];
+    [mlnkv setKVString:@"123" forKey:@"keysss"];
     
     return YES;
 }

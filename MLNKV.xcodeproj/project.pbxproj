@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012987F5B91ABA6766095635 /* Pods_MLNKV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BF98CD81C4AD91DDF9100A /* Pods_MLNKV.framework */; };
+		33022611279D042C8AE49BA1 /* libPods-MLNKV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415CFC044ED9E8B32685F51B /* libPods-MLNKV.a */; };
 		A424640723A27ED800EDB801 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A424640623A27ED800EDB801 /* CoreFoundation.framework */; };
 		A4AA31E2237973A5000D5B7D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A4AA31E1237973A5000D5B7D /* README.md */; };
 		A4AA320E237BC54E000D5B7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AA320D237BC54E000D5B7D /* UIKit.framework */; };
@@ -21,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		34E9D82F680F261130EFEB15 /* Pods-MLNKVTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLNKVTest.debug.xcconfig"; path = "Target Support Files/Pods-MLNKVTest/Pods-MLNKVTest.debug.xcconfig"; sourceTree = "<group>"; };
+		415CFC044ED9E8B32685F51B /* libPods-MLNKV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MLNKV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		865D54DC02314A2FA9FB790B /* Pods-MLNKV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLNKV.release.xcconfig"; path = "Target Support Files/Pods-MLNKV/Pods-MLNKV.release.xcconfig"; sourceTree = "<group>"; };
 		9C5ED39658E74B6E795520A6 /* Pods-MLNKV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLNKV.debug.xcconfig"; path = "Target Support Files/Pods-MLNKV/Pods-MLNKV.debug.xcconfig"; sourceTree = "<group>"; };
 		A424640623A27ED800EDB801 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -39,7 +40,6 @@
 		A4C60705236BDC79008A763A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4C60706236BDC79008A763A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE7DFD149C2C3F8B8B362522 /* Pods-MLNKVTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLNKVTest.release.xcconfig"; path = "Target Support Files/Pods-MLNKVTest/Pods-MLNKVTest.release.xcconfig"; sourceTree = "<group>"; };
-		C6BF98CD81C4AD91DDF9100A /* Pods_MLNKV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLNKV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C72456A51E8CDD06A83B28 /* Pods_MLNKVTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLNKVTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -50,7 +50,7 @@
 			files = (
 				A424640723A27ED800EDB801 /* CoreFoundation.framework in Frameworks */,
 				A4AA320E237BC54E000D5B7D /* UIKit.framework in Frameworks */,
-				012987F5B91ABA6766095635 /* Pods_MLNKV.framework in Frameworks */,
+				33022611279D042C8AE49BA1 /* libPods-MLNKV.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,8 +75,8 @@
 				A4AA328E237FBFD8000D5B7D /* libz.tbd */,
 				A4AA320D237BC54E000D5B7D /* UIKit.framework */,
 				A4AA320B237BC537000D5B7D /* XcodeKit.framework */,
-				C6BF98CD81C4AD91DDF9100A /* Pods_MLNKV.framework */,
 				D9C72456A51E8CDD06A83B28 /* Pods_MLNKVTest.framework */,
+				415CFC044ED9E8B32685F51B /* libPods-MLNKV.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,7 +127,6 @@
 				A4C606F0236BDC77008A763A /* Sources */,
 				A4C606F1236BDC77008A763A /* Frameworks */,
 				A4C606F2236BDC77008A763A /* Resources */,
-				278630E7946A53D8F2633D68 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,23 +184,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		278630E7946A53D8F2633D68 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MLNKV/Pods-MLNKV-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MLNKV/Pods-MLNKV-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MLNKV/Pods-MLNKV-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8461B06B21BAE72F75B57EAF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

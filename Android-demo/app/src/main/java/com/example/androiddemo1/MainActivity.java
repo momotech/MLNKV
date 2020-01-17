@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.mlnkv.MLNKV;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         MLNKV.initializeBasePath(this);
         mlnkv = MLNKV.defaultMLNKV();
-        mlnkv.setInt32(-11, "key1");
-        mlnkv.setString("value我发😁1", "key2");
+        mlnkv.setInt32("key1", -11);
+        mlnkv.setString( "key2", "value我发😁1");
 
         Log.e("MMMM", String.valueOf(mlnkv.getInt32("key1", 0)));
         Log.e("MMMM", mlnkv.getString("key2", ""));
@@ -38,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         for (String ss : mlnkv.allKeys()) {
             Log.e("MMMM", ss);
         }
+
+        String[]  sss = new String[] {"ni", "22"};
+
+        mlnkv.setObject("testKey", sss);
+//
+        Log.e("MMMM", mlnkv.getObject("testKey", null).toString());
 
     }
 

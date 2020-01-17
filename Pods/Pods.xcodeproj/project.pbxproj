@@ -7,29 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		007A2A1A6465C8777B0B0641B2B3193C /* MLNKV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B13AB5FE11102D4F6AE46027D1A9D1D9 /* MLNKV-dummy.m */; };
-		0241F5EE945C4CD2483E328153AEA9C3 /* MLNKVLog.h in Headers */ = {isa = PBXBuildFile; fileRef = C27FBA43A8D2154374B6D7CB84A6CB1D /* MLNKVLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F66DB9D6130C11ACB60E65004EF0ED9 /* MLNKV.h in Headers */ = {isa = PBXBuildFile; fileRef = 33A67D703A358E25C3D159A94176B51A /* MLNKV.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		149D93C3ADA05D0F76A800676D498372 /* Pods-MLNKV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A09C2917237B8B91D1B15BBC0210CF /* Pods-MLNKV-dummy.m */; };
-		34A9EF0477E8640F4E99347BE7725893 /* MLNKVMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB9AD4A699E641BCDA80DA953E9A90E /* MLNKVMemoryCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		384204202A2C395E1164BFD057E13F96 /* MLNKVBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F1577C50B806645FBE4BA9FF5F9D8E9 /* MLNKVBase.cpp */; };
-		4C8390D1BEC09ADD9F6927D0E3A7AE92 /* MLNKV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84E43CBDBB7DFCE6879AF87176BD96B0 /* MLNKV.mm */; };
-		5DA14F3E13089DD74BF77EC398229A8A /* MLNKV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 718E7B2E2C5EAAA315CE18910ECA48EC /* MLNKV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		619D89B04181BDC80397D76AA1E4166E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11BD21C929AEE6BFB2A9C39EA35B662 /* CoreFoundation.framework */; };
-		6448BEE2C36CFE2AC0D8E5C0C6D41E32 /* MLNKVType.h in Headers */ = {isa = PBXBuildFile; fileRef = B6CA79BAD72ECF3BB8996C096DB2AD90 /* MLNKVType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		688610CCB71EECCF3E805CBD0D7D1795 /* MLNKVLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5454BD4F299C6FBCDC31ADD0107BC0D0 /* MLNKVLog.cpp */; };
-		710BCE59AAAB43ABBD52352CE9D7718B /* MLNKVUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E883B754BB4695F859AD162936832E0 /* MLNKVUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A78ED396197650D537149AC0A2BA04BC /* Pods-MLNKV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 590A4D86AAE0D10E708F62416788B31C /* Pods-MLNKV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A807BDDCBDD2066851D6FB723BF2C304 /* MLNKVMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC247D9C4D199DC858449B50D3CC225 /* MLNKVMemoryCache.m */; };
-		D0B9326B4964423B0E5386A9F2941845 /* MLNKVBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 49EED962957358B6718011AABFEC9A7D /* MLNKVBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D862FB4315981361810BB6BB8FBC452E /* MLNKVValueInfo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7FE444E0E8B4CF59F46B518C46127F04 /* MLNKVValueInfo.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED1F08C7F539F40ED29E787A39B15B57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D939F264531CBF82D61B30E58EE0E45D /* UIKit.framework */; };
-		F13F82D2D8B3B5940C64BAD07F62F904 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F598F2ED55E25048B23B1BA8DDDE01 /* Foundation.framework */; };
-		FB15648C24381B4CEAF9C217EBD0FDE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F598F2ED55E25048B23B1BA8DDDE01 /* Foundation.framework */; };
+		030885D703FE961D6A64693E1FFA062D /* MLNKV.mm in Sources */ = {isa = PBXBuildFile; fileRef = FEF3507A462D971877BBECF8296046E8 /* MLNKV.mm */; };
+		0D07562D822402143148B1AA6E085370 /* MLNKVBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F4E6FA2D32828ADCEEA648BC41E7C30 /* MLNKVBase.cpp */; };
+		3A5DE68C8A299BA2ACDFF9A6B2314EED /* MLNKV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B487CD5848D471697875C2B69A3405F9 /* MLNKV-dummy.m */; };
+		3E142C9777E51A48613916E40F1C8D93 /* MLNKVLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A02435D28BB8CA0CFC609E44356E8F0B /* MLNKVLog.cpp */; };
+		7668FC538E7752A9E91F1B9BB60E1141 /* MLNKVMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8258347755A0ADBC4816AE760291B75D /* MLNKVMemoryCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		86288A07C957CF1F274364129110E203 /* MLNKVLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 38328A094FAEAEBA6E893896156CD0AE /* MLNKVLog.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9834430A6511A8BC4DBB9957A9DA16C3 /* MLNKV.h in Headers */ = {isa = PBXBuildFile; fileRef = F6938CBB38073C3E6D1606DBC5780828 /* MLNKV.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A4BF0A686C1A406A458DCD62DCD956B8 /* MLNKVBase.h in Headers */ = {isa = PBXBuildFile; fileRef = ADBEA9D2B8C3D011C6E4836D302B1973 /* MLNKVBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A5CEE0EE90869D843BAC168BFFCF2901 /* MLNKVValueInfo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F841BC967DB4526E184DF4A08A494702 /* MLNKVValueInfo.hpp */; settings = {ATTRIBUTES = (Project, ); }; };
+		A652F66FFCCBC3F0BEE1928D8F7CF6F2 /* MLNKVType.h in Headers */ = {isa = PBXBuildFile; fileRef = A856D9E900A4C47A47B8F00DB7E2C0D5 /* MLNKVType.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B74661BD5060497E78305C0A52B46659 /* MLNKVMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2CDA6B7A1CA3981767445E1E22D294 /* MLNKVMemoryCache.m */; };
+		E2489FFE465502E747F2EB45335710E4 /* Pods-MLNKV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FC86B5FEF211E4D2D772135DCE9456 /* Pods-MLNKV-dummy.m */; };
+		F5A5CA744190B39B4F379E6B8C7F6751 /* MLNKVUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 927804B4172989B21224CEFC969083A3 /* MLNKVUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2423C4301256F78A04A832AA575353A1 /* PBXContainerItemProxy */ = {
+		A9C13D3377276F7F8927D5285E9C8C51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -39,159 +33,126 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06CE5220CF0B23067BD73408B6A8E121 /* Pods-MLNKV-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLNKV-acknowledgements.plist"; sourceTree = "<group>"; };
-		163BC099F0C3318C85DFE54A1BBDC048 /* Pods_MLNKV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MLNKV.framework; path = "Pods-MLNKV.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C59670A4E1378D173E1550FAEA9A7F2 /* MLNKV.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MLNKV.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		1E883B754BB4695F859AD162936832E0 /* MLNKVUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVUtility.h; path = Source/cpp/MLNKVUtility.h; sourceTree = "<group>"; };
-		201B5F7C1342C78516A8DA07087D2CD6 /* MLNKV-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MLNKV-Info.plist"; sourceTree = "<group>"; };
-		28A09C2917237B8B91D1B15BBC0210CF /* Pods-MLNKV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLNKV-dummy.m"; sourceTree = "<group>"; };
-		29B0D9A2FC872513AFF5D8C0A7F75195 /* MLNKV.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MLNKV.xcconfig; sourceTree = "<group>"; };
-		2A4E3CDE672546A60C60E7D9DD2AA205 /* Pods-MLNKV-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLNKV-frameworks.sh"; sourceTree = "<group>"; };
-		2ABDA3AA440900F6295EEEFD36F9EE2B /* MLNKV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MLNKV.modulemap; sourceTree = "<group>"; };
-		2F2540A48614E17CD1B1B7591FF07F74 /* Pods-MLNKV-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLNKV-acknowledgements.markdown"; sourceTree = "<group>"; };
-		33A67D703A358E25C3D159A94176B51A /* MLNKV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKV.h; path = Source/iOS/MLNKV.h; sourceTree = "<group>"; };
-		49EED962957358B6718011AABFEC9A7D /* MLNKVBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVBase.h; path = Source/cpp/MLNKVBase.h; sourceTree = "<group>"; };
-		5454BD4F299C6FBCDC31ADD0107BC0D0 /* MLNKVLog.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKVLog.cpp; path = Source/cpp/MLNKVLog.cpp; sourceTree = "<group>"; };
-		590A4D86AAE0D10E708F62416788B31C /* Pods-MLNKV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLNKV-umbrella.h"; sourceTree = "<group>"; };
-		718E7B2E2C5EAAA315CE18910ECA48EC /* MLNKV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLNKV-umbrella.h"; sourceTree = "<group>"; };
-		7C1DBA72310B9E8BDAE83C96122ABBDB /* Pods-MLNKV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLNKV.debug.xcconfig"; sourceTree = "<group>"; };
-		7FE444E0E8B4CF59F46B518C46127F04 /* MLNKVValueInfo.hpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKVValueInfo.hpp; path = Source/cpp/MLNKVValueInfo.hpp; sourceTree = "<group>"; };
-		84E43CBDBB7DFCE6879AF87176BD96B0 /* MLNKV.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKV.mm; path = Source/iOS/MLNKV.mm; sourceTree = "<group>"; };
-		86F45062BD1B8EC46CE8051A25399B40 /* Pods-MLNKV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MLNKV.modulemap"; sourceTree = "<group>"; };
-		88F598F2ED55E25048B23B1BA8DDDE01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8F1577C50B806645FBE4BA9FF5F9D8E9 /* MLNKVBase.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKVBase.cpp; path = Source/cpp/MLNKVBase.cpp; sourceTree = "<group>"; };
-		94BC4BAA19AB2C150B6178A962F16A0E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		163BC099F0C3318C85DFE54A1BBDC048 /* libPods-MLNKV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-MLNKV.a"; path = "libPods-MLNKV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38328A094FAEAEBA6E893896156CD0AE /* MLNKVLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVLog.h; path = Source/cpp/MLNKVLog.h; sourceTree = "<group>"; };
+		4B4A5524FEC9E5A52A42773F2EFCF4A4 /* Pods-MLNKV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLNKV.release.xcconfig"; sourceTree = "<group>"; };
+		4F4E6FA2D32828ADCEEA648BC41E7C30 /* MLNKVBase.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKVBase.cpp; path = Source/cpp/MLNKVBase.cpp; sourceTree = "<group>"; };
+		66FC86B5FEF211E4D2D772135DCE9456 /* Pods-MLNKV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLNKV-dummy.m"; sourceTree = "<group>"; };
+		7D694FB257041A7DC6CAA62A886EAF93 /* MLNKV.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = MLNKV.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8258347755A0ADBC4816AE760291B75D /* MLNKVMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVMemoryCache.h; path = Source/iOS/MLNKVMemoryCache.h; sourceTree = "<group>"; };
+		82FD28A4206098F9E6B29C314FAED8D7 /* Pods-MLNKV-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLNKV-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8AD45F7E0C2C75930D94178EB7806EF8 /* Pods-MLNKV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLNKV.debug.xcconfig"; sourceTree = "<group>"; };
+		90DA03B13F63176A1BAB46C8E01D2FFC /* Pods-MLNKV-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLNKV-acknowledgements.plist"; sourceTree = "<group>"; };
+		927804B4172989B21224CEFC969083A3 /* MLNKVUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVUtility.h; path = Source/cpp/MLNKVUtility.h; sourceTree = "<group>"; };
+		9C2A220EAD5DA15DE048E5B767B4B9E1 /* MLNKV.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MLNKV.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0991124534CF279C05FB2841DF1CF33 /* MLNKV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MLNKV.framework; path = MLNKV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B10A808DA6BBC0EF5C17C9815F6F64AF /* Pods-MLNKV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLNKV.release.xcconfig"; sourceTree = "<group>"; };
-		B13AB5FE11102D4F6AE46027D1A9D1D9 /* MLNKV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MLNKV-dummy.m"; sourceTree = "<group>"; };
-		B6CA79BAD72ECF3BB8996C096DB2AD90 /* MLNKVType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVType.h; path = Source/cpp/MLNKVType.h; sourceTree = "<group>"; };
-		BDB9AD4A699E641BCDA80DA953E9A90E /* MLNKVMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVMemoryCache.h; path = Source/iOS/MLNKVMemoryCache.h; sourceTree = "<group>"; };
-		C11BD21C929AEE6BFB2A9C39EA35B662 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		C27FBA43A8D2154374B6D7CB84A6CB1D /* MLNKVLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVLog.h; path = Source/cpp/MLNKVLog.h; sourceTree = "<group>"; };
-		C4571378EE46BA023B8F2C9BBE281D07 /* Pods-MLNKV-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLNKV-Info.plist"; sourceTree = "<group>"; };
-		D8C64DECA102312301D4F6A0C25DCFFE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		D939F264531CBF82D61B30E58EE0E45D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EBC247D9C4D199DC858449B50D3CC225 /* MLNKVMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MLNKVMemoryCache.m; path = Source/iOS/MLNKVMemoryCache.m; sourceTree = "<group>"; };
-		F8E3E79BEE1BF549DA774E78F873F513 /* MLNKV-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLNKV-prefix.pch"; sourceTree = "<group>"; };
+		A02435D28BB8CA0CFC609E44356E8F0B /* MLNKVLog.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKVLog.cpp; path = Source/cpp/MLNKVLog.cpp; sourceTree = "<group>"; };
+		A0991124534CF279C05FB2841DF1CF33 /* libMLNKV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMLNKV.a; path = libMLNKV.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A731B325333ED708B431A1D2831A86B2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		A856D9E900A4C47A47B8F00DB7E2C0D5 /* MLNKVType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVType.h; path = Source/cpp/MLNKVType.h; sourceTree = "<group>"; };
+		AB529FA670336CE40CE3F0DE75C381A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		ADBEA9D2B8C3D011C6E4836D302B1973 /* MLNKVBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKVBase.h; path = Source/cpp/MLNKVBase.h; sourceTree = "<group>"; };
+		B487CD5848D471697875C2B69A3405F9 /* MLNKV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MLNKV-dummy.m"; sourceTree = "<group>"; };
+		BD2CDA6B7A1CA3981767445E1E22D294 /* MLNKVMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MLNKVMemoryCache.m; path = Source/iOS/MLNKVMemoryCache.m; sourceTree = "<group>"; };
+		E85E38AAA1D8060C09A6908752DED5AE /* MLNKV-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLNKV-prefix.pch"; sourceTree = "<group>"; };
+		F6938CBB38073C3E6D1606DBC5780828 /* MLNKV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MLNKV.h; path = Source/iOS/MLNKV.h; sourceTree = "<group>"; };
+		F841BC967DB4526E184DF4A08A494702 /* MLNKVValueInfo.hpp */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKVValueInfo.hpp; path = Source/cpp/MLNKVValueInfo.hpp; sourceTree = "<group>"; };
+		FEF3507A462D971877BBECF8296046E8 /* MLNKV.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = MLNKV.mm; path = Source/iOS/MLNKV.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BA3229C1CB3405CF8A18E5A5ED24885E /* Frameworks */ = {
+		3BEC2817C88C335C4636EE853C43F21B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				619D89B04181BDC80397D76AA1E4166E /* CoreFoundation.framework in Frameworks */,
-				FB15648C24381B4CEAF9C217EBD0FDE7 /* Foundation.framework in Frameworks */,
-				ED1F08C7F539F40ED29E787A39B15B57 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE62F27F3E4116F461AB5BE201AAADB7 /* Frameworks */ = {
+		B1D45CC6F4826DFEA3F2A7652DDF61CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F13F82D2D8B3B5940C64BAD07F62F904 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+		076EE020C499AD961C464C21B5B1EC4E /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C97D7C5776C5A484D766BA662C2C1F69 /* iOS */,
+				A650ECF73A0F2A989B2B88DF1B527D98 /* Pods-MLNKV */,
 			);
-			name = Frameworks;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		34A9AB0D2596F336D9C225BD8E43CAB0 /* Pod */ = {
+		3EAB40F57E989C207C53A2246A6194B5 /* MLNKV */ = {
 			isa = PBXGroup;
 			children = (
-				D8C64DECA102312301D4F6A0C25DCFFE /* LICENSE */,
-				1C59670A4E1378D173E1550FAEA9A7F2 /* MLNKV.podspec */,
-				94BC4BAA19AB2C150B6178A962F16A0E /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		3ED24DB1E4EB6B934B41BFB0DE8DB81C /* MLNKV */ = {
-			isa = PBXGroup;
-			children = (
-				33A67D703A358E25C3D159A94176B51A /* MLNKV.h */,
-				84E43CBDBB7DFCE6879AF87176BD96B0 /* MLNKV.mm */,
-				BDB9AD4A699E641BCDA80DA953E9A90E /* MLNKVMemoryCache.h */,
-				EBC247D9C4D199DC858449B50D3CC225 /* MLNKVMemoryCache.m */,
-				6E2DCC9C2E1B6C2D2EECEF65C271D3B4 /* cpp */,
-				34A9AB0D2596F336D9C225BD8E43CAB0 /* Pod */,
-				5ED57A17910A1D6F7BDDBA844FB4F658 /* Support Files */,
+				F6938CBB38073C3E6D1606DBC5780828 /* MLNKV.h */,
+				FEF3507A462D971877BBECF8296046E8 /* MLNKV.mm */,
+				8258347755A0ADBC4816AE760291B75D /* MLNKVMemoryCache.h */,
+				BD2CDA6B7A1CA3981767445E1E22D294 /* MLNKVMemoryCache.m */,
+				5E8B370E043EF189FD437FEEE70FF704 /* cpp */,
+				A7009A034881088DFC5E3726F61B9BF9 /* Pod */,
+				DE14A60C6DF354A51503CDEFC23A2741 /* Support Files */,
 			);
 			name = MLNKV;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		4C914955025B96F8CBF284508B606F31 /* Products */ = {
+		44F1F7C699EF6A4A9618E11C57E44A4F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0991124534CF279C05FB2841DF1CF33 /* MLNKV.framework */,
-				163BC099F0C3318C85DFE54A1BBDC048 /* Pods_MLNKV.framework */,
+				A0991124534CF279C05FB2841DF1CF33 /* libMLNKV.a */,
+				163BC099F0C3318C85DFE54A1BBDC048 /* libPods-MLNKV.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5ED57A17910A1D6F7BDDBA844FB4F658 /* Support Files */ = {
+		5E8B370E043EF189FD437FEEE70FF704 /* cpp */ = {
 			isa = PBXGroup;
 			children = (
-				2ABDA3AA440900F6295EEEFD36F9EE2B /* MLNKV.modulemap */,
-				29B0D9A2FC872513AFF5D8C0A7F75195 /* MLNKV.xcconfig */,
-				B13AB5FE11102D4F6AE46027D1A9D1D9 /* MLNKV-dummy.m */,
-				201B5F7C1342C78516A8DA07087D2CD6 /* MLNKV-Info.plist */,
-				F8E3E79BEE1BF549DA774E78F873F513 /* MLNKV-prefix.pch */,
-				718E7B2E2C5EAAA315CE18910ECA48EC /* MLNKV-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/MLNKV";
-			sourceTree = "<group>";
-		};
-		6E2DCC9C2E1B6C2D2EECEF65C271D3B4 /* cpp */ = {
-			isa = PBXGroup;
-			children = (
-				8F1577C50B806645FBE4BA9FF5F9D8E9 /* MLNKVBase.cpp */,
-				49EED962957358B6718011AABFEC9A7D /* MLNKVBase.h */,
-				5454BD4F299C6FBCDC31ADD0107BC0D0 /* MLNKVLog.cpp */,
-				C27FBA43A8D2154374B6D7CB84A6CB1D /* MLNKVLog.h */,
-				B6CA79BAD72ECF3BB8996C096DB2AD90 /* MLNKVType.h */,
-				1E883B754BB4695F859AD162936832E0 /* MLNKVUtility.h */,
-				7FE444E0E8B4CF59F46B518C46127F04 /* MLNKVValueInfo.hpp */,
+				4F4E6FA2D32828ADCEEA648BC41E7C30 /* MLNKVBase.cpp */,
+				ADBEA9D2B8C3D011C6E4836D302B1973 /* MLNKVBase.h */,
+				A02435D28BB8CA0CFC609E44356E8F0B /* MLNKVLog.cpp */,
+				38328A094FAEAEBA6E893896156CD0AE /* MLNKVLog.h */,
+				A856D9E900A4C47A47B8F00DB7E2C0D5 /* MLNKVType.h */,
+				927804B4172989B21224CEFC969083A3 /* MLNKVUtility.h */,
+				F841BC967DB4526E184DF4A08A494702 /* MLNKVValueInfo.hpp */,
 			);
 			name = cpp;
 			sourceTree = "<group>";
 		};
-		9BBE23FFE12F5F393939200A2F0C78DB /* Targets Support Files */ = {
+		A650ECF73A0F2A989B2B88DF1B527D98 /* Pods-MLNKV */ = {
 			isa = PBXGroup;
 			children = (
-				D805320A2D881F7690DF0D5A2E97F5A3 /* Pods-MLNKV */,
+				82FD28A4206098F9E6B29C314FAED8D7 /* Pods-MLNKV-acknowledgements.markdown */,
+				90DA03B13F63176A1BAB46C8E01D2FFC /* Pods-MLNKV-acknowledgements.plist */,
+				66FC86B5FEF211E4D2D772135DCE9456 /* Pods-MLNKV-dummy.m */,
+				8AD45F7E0C2C75930D94178EB7806EF8 /* Pods-MLNKV.debug.xcconfig */,
+				4B4A5524FEC9E5A52A42773F2EFCF4A4 /* Pods-MLNKV.release.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Pods-MLNKV";
+			path = "Target Support Files/Pods-MLNKV";
+			sourceTree = "<group>";
+		};
+		A7009A034881088DFC5E3726F61B9BF9 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				A731B325333ED708B431A1D2831A86B2 /* LICENSE */,
+				7D694FB257041A7DC6CAA62A886EAF93 /* MLNKV.podspec */,
+				AB529FA670336CE40CE3F0DE75C381A3 /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		B4D1A1913677058A13E8E325D70867A8 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3ED24DB1E4EB6B934B41BFB0DE8DB81C /* MLNKV */,
+				3EAB40F57E989C207C53A2246A6194B5 /* MLNKV */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		C97D7C5776C5A484D766BA662C2C1F69 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C11BD21C929AEE6BFB2A9C39EA35B662 /* CoreFoundation.framework */,
-				88F598F2ED55E25048B23B1BA8DDDE01 /* Foundation.framework */,
-				D939F264531CBF82D61B30E58EE0E45D /* UIKit.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -199,52 +160,51 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				B4D1A1913677058A13E8E325D70867A8 /* Development Pods */,
-				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				4C914955025B96F8CBF284508B606F31 /* Products */,
-				9BBE23FFE12F5F393939200A2F0C78DB /* Targets Support Files */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				44F1F7C699EF6A4A9618E11C57E44A4F /* Products */,
+				076EE020C499AD961C464C21B5B1EC4E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D805320A2D881F7690DF0D5A2E97F5A3 /* Pods-MLNKV */ = {
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86F45062BD1B8EC46CE8051A25399B40 /* Pods-MLNKV.modulemap */,
-				2F2540A48614E17CD1B1B7591FF07F74 /* Pods-MLNKV-acknowledgements.markdown */,
-				06CE5220CF0B23067BD73408B6A8E121 /* Pods-MLNKV-acknowledgements.plist */,
-				28A09C2917237B8B91D1B15BBC0210CF /* Pods-MLNKV-dummy.m */,
-				2A4E3CDE672546A60C60E7D9DD2AA205 /* Pods-MLNKV-frameworks.sh */,
-				C4571378EE46BA023B8F2C9BBE281D07 /* Pods-MLNKV-Info.plist */,
-				590A4D86AAE0D10E708F62416788B31C /* Pods-MLNKV-umbrella.h */,
-				7C1DBA72310B9E8BDAE83C96122ABBDB /* Pods-MLNKV.debug.xcconfig */,
-				B10A808DA6BBC0EF5C17C9815F6F64AF /* Pods-MLNKV.release.xcconfig */,
 			);
-			name = "Pods-MLNKV";
-			path = "Target Support Files/Pods-MLNKV";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE14A60C6DF354A51503CDEFC23A2741 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C2A220EAD5DA15DE048E5B767B4B9E1 /* MLNKV.xcconfig */,
+				B487CD5848D471697875C2B69A3405F9 /* MLNKV-dummy.m */,
+				E85E38AAA1D8060C09A6908752DED5AE /* MLNKV-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/MLNKV";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5FA64E5C0F45222C65A8283CB0C80526 /* Headers */ = {
+		21DE0B48F0202DDEAA34A90E9CBFC178 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DA14F3E13089DD74BF77EC398229A8A /* MLNKV-umbrella.h in Headers */,
-				0F66DB9D6130C11ACB60E65004EF0ED9 /* MLNKV.h in Headers */,
-				D0B9326B4964423B0E5386A9F2941845 /* MLNKVBase.h in Headers */,
-				0241F5EE945C4CD2483E328153AEA9C3 /* MLNKVLog.h in Headers */,
-				34A9EF0477E8640F4E99347BE7725893 /* MLNKVMemoryCache.h in Headers */,
-				6448BEE2C36CFE2AC0D8E5C0C6D41E32 /* MLNKVType.h in Headers */,
-				710BCE59AAAB43ABBD52352CE9D7718B /* MLNKVUtility.h in Headers */,
-				D862FB4315981361810BB6BB8FBC452E /* MLNKVValueInfo.hpp in Headers */,
+				9834430A6511A8BC4DBB9957A9DA16C3 /* MLNKV.h in Headers */,
+				A4BF0A686C1A406A458DCD62DCD956B8 /* MLNKVBase.h in Headers */,
+				86288A07C957CF1F274364129110E203 /* MLNKVLog.h in Headers */,
+				7668FC538E7752A9E91F1B9BB60E1141 /* MLNKVMemoryCache.h in Headers */,
+				A652F66FFCCBC3F0BEE1928D8F7CF6F2 /* MLNKVType.h in Headers */,
+				F5A5CA744190B39B4F379E6B8C7F6751 /* MLNKVUtility.h in Headers */,
+				A5CEE0EE90869D843BAC168BFFCF2901 /* MLNKVValueInfo.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CCCFF4719E48A1059D1959AB4C1B2E43 /* Headers */ = {
+		ECC90B533D9AACE6989AE422E85ACA51 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A78ED396197650D537149AC0A2BA04BC /* Pods-MLNKV-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,31 +213,29 @@
 /* Begin PBXNativeTarget section */
 		1A019E6B2C6E86D909DFCCA46905655D /* Pods-MLNKV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1BD7AC2028CF38ED4EE44A3E05AEF283 /* Build configuration list for PBXNativeTarget "Pods-MLNKV" */;
+			buildConfigurationList = B6EACBC97D81ABCD46671C6314CCA7DD /* Build configuration list for PBXNativeTarget "Pods-MLNKV" */;
 			buildPhases = (
-				CCCFF4719E48A1059D1959AB4C1B2E43 /* Headers */,
-				F4BCBAAD44D5232408AACB49EDDFFD6F /* Sources */,
-				BE62F27F3E4116F461AB5BE201AAADB7 /* Frameworks */,
-				BEB1DECC11DEA0A02A042CBF421C1C59 /* Resources */,
+				ECC90B533D9AACE6989AE422E85ACA51 /* Headers */,
+				EA1654A7CB7276998CC698628D56D486 /* Sources */,
+				3BEC2817C88C335C4636EE853C43F21B /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EB5E84CF3CD1D4CE79CDF24D79A62DEB /* PBXTargetDependency */,
+				B809418714874B1CB77A9904CC3BA9C9 /* PBXTargetDependency */,
 			);
 			name = "Pods-MLNKV";
 			productName = "Pods-MLNKV";
-			productReference = 163BC099F0C3318C85DFE54A1BBDC048 /* Pods_MLNKV.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = 163BC099F0C3318C85DFE54A1BBDC048 /* libPods-MLNKV.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		D7A90C668DDD5A1E2EEB6A6E65247D72 /* MLNKV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D091FF3A5A37D65710191B268A5CEF44 /* Build configuration list for PBXNativeTarget "MLNKV" */;
+			buildConfigurationList = 4D94CD43B8B0AE41E5195B07E7CD8C25 /* Build configuration list for PBXNativeTarget "MLNKV" */;
 			buildPhases = (
-				5FA64E5C0F45222C65A8283CB0C80526 /* Headers */,
-				BC28B70AF6B65063A49FB4BA23BC0694 /* Sources */,
-				BA3229C1CB3405CF8A18E5A5ED24885E /* Frameworks */,
-				C8E6935FB44C687CCAA2664B9EE7998F /* Resources */,
+				21DE0B48F0202DDEAA34A90E9CBFC178 /* Headers */,
+				CD309D6260865F748EAE83F58E664853 /* Sources */,
+				B1D45CC6F4826DFEA3F2A7652DDF61CF /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,8 +243,8 @@
 			);
 			name = MLNKV;
 			productName = MLNKV;
-			productReference = A0991124534CF279C05FB2841DF1CF33 /* MLNKV.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = A0991124534CF279C05FB2841DF1CF33 /* libMLNKV.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -305,7 +263,7 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4C914955025B96F8CBF284508B606F31 /* Products */;
+			productRefGroup = 44F1F7C699EF6A4A9618E11C57E44A4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -315,164 +273,62 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		BEB1DECC11DEA0A02A042CBF421C1C59 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C8E6935FB44C687CCAA2664B9EE7998F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		BC28B70AF6B65063A49FB4BA23BC0694 /* Sources */ = {
+		CD309D6260865F748EAE83F58E664853 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				007A2A1A6465C8777B0B0641B2B3193C /* MLNKV-dummy.m in Sources */,
-				4C8390D1BEC09ADD9F6927D0E3A7AE92 /* MLNKV.mm in Sources */,
-				384204202A2C395E1164BFD057E13F96 /* MLNKVBase.cpp in Sources */,
-				688610CCB71EECCF3E805CBD0D7D1795 /* MLNKVLog.cpp in Sources */,
-				A807BDDCBDD2066851D6FB723BF2C304 /* MLNKVMemoryCache.m in Sources */,
+				3A5DE68C8A299BA2ACDFF9A6B2314EED /* MLNKV-dummy.m in Sources */,
+				030885D703FE961D6A64693E1FFA062D /* MLNKV.mm in Sources */,
+				0D07562D822402143148B1AA6E085370 /* MLNKVBase.cpp in Sources */,
+				3E142C9777E51A48613916E40F1C8D93 /* MLNKVLog.cpp in Sources */,
+				B74661BD5060497E78305C0A52B46659 /* MLNKVMemoryCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4BCBAAD44D5232408AACB49EDDFFD6F /* Sources */ = {
+		EA1654A7CB7276998CC698628D56D486 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				149D93C3ADA05D0F76A800676D498372 /* Pods-MLNKV-dummy.m in Sources */,
+				E2489FFE465502E747F2EB45335710E4 /* Pods-MLNKV-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EB5E84CF3CD1D4CE79CDF24D79A62DEB /* PBXTargetDependency */ = {
+		B809418714874B1CB77A9904CC3BA9C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MLNKV;
 			target = D7A90C668DDD5A1E2EEB6A6E65247D72 /* MLNKV */;
-			targetProxy = 2423C4301256F78A04A832AA575353A1 /* PBXContainerItemProxy */;
+			targetProxy = A9C13D3377276F7F8927D5285E9C8C51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		036425078DCC1125D319B58BC40B9676 /* Release */ = {
+		6A2E694F65E87C137E4C8E3D165D02F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B10A808DA6BBC0EF5C17C9815F6F64AF /* Pods-MLNKV.release.xcconfig */;
+			baseConfigurationReference = 9C2A220EAD5DA15DE048E5B767B4B9E1 /* MLNKV.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MLNKV/Pods-MLNKV-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MLNKV/Pods-MLNKV.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		2C63EC62E11579AF444BDE450C657834 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C1DBA72310B9E8BDAE83C96122ABBDB /* Pods-MLNKV.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MLNKV/Pods-MLNKV-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MLNKV/Pods-MLNKV.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		607749C57FBB4448785AE42334FBD97D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29B0D9A2FC872513AFF5D8C0A7F75195 /* MLNKV.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/MLNKV/MLNKV-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MLNKV/MLNKV-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MLNKV/MLNKV.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = MLNKV;
 				PRODUCT_NAME = MLNKV;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -598,53 +454,75 @@
 			};
 			name = Debug;
 		};
-		E68AEAA74ABDD1F390A376B21350E192 /* Release */ = {
+		9669F4D8D6E54E2B351F3FC05BA1E7A9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29B0D9A2FC872513AFF5D8C0A7F75195 /* MLNKV.xcconfig */;
+			baseConfigurationReference = 4B4A5524FEC9E5A52A42773F2EFCF4A4 /* Pods-MLNKV.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MLNKV/MLNKV-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MLNKV/MLNKV-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/MLNKV/MLNKV.modulemap";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB78B6B62DB2BF70041A051490C74FB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C2A220EAD5DA15DE048E5B767B4B9E1 /* MLNKV.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MLNKV/MLNKV-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = MLNKV;
 				PRODUCT_NAME = MLNKV;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
+		};
+		D0482BA72C081D56D73CEEF6658676D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AD45F7E0C2C75930D94178EB7806EF8 /* Pods-MLNKV.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1BD7AC2028CF38ED4EE44A3E05AEF283 /* Build configuration list for PBXNativeTarget "Pods-MLNKV" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2C63EC62E11579AF444BDE450C657834 /* Debug */,
-				036425078DCC1125D319B58BC40B9676 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -654,11 +532,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D091FF3A5A37D65710191B268A5CEF44 /* Build configuration list for PBXNativeTarget "MLNKV" */ = {
+		4D94CD43B8B0AE41E5195B07E7CD8C25 /* Build configuration list for PBXNativeTarget "MLNKV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				607749C57FBB4448785AE42334FBD97D /* Debug */,
-				E68AEAA74ABDD1F390A376B21350E192 /* Release */,
+				BB78B6B62DB2BF70041A051490C74FB3 /* Debug */,
+				6A2E694F65E87C137E4C8E3D165D02F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6EACBC97D81ABCD46671C6314CCA7DD /* Build configuration list for PBXNativeTarget "Pods-MLNKV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0482BA72C081D56D73CEEF6658676D7 /* Debug */,
+				9669F4D8D6E54E2B351F3FC05BA1E7A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

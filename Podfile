@@ -3,10 +3,11 @@
 
 target 'MLNKV' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+  #use_frameworks!
 
   # Pods for MLNKV
 
  pod "MLNKV", :path => './MLNKV.podspec'
+#pod "MLNKV"
 
 end
